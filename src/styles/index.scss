@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 // Variables
+@import "variables/numbers";
 @import "./variables/colors";
 @import "./variables/breakpoints";
 @import "./variables/radius";
@@ -14,11 +15,27 @@
 
 // Layouts
 @import "layouts/auth-layout";
+@import "layouts/app-layout";
 
 // components
-@import "components/auth-components";
+@import "components/page-title";
 @import "components/form";
 @import "components/button";
+@import "components/header";
+@import "components/avatar";
+@import "components/card";
+@import "components/container";
+@import "components/sidebar";
+@import "components/badge";
+
+@import "components/auth-components";
+@import "components/profile-components";
+
+// Pages
+@import "pages/medical-reports";
+
+// Libraries
+@import "libraries/data-table";
 
 * {
   margin: 0;

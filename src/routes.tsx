@@ -1,35 +1,73 @@
+import AppLayout from "./components/layouts/AppLayout";
+import AuthLayout from "./components/layouts/AuthLayout";
+import ProfileLayout from "./components/layouts/ProfileLayout";
 import ForgotPassword from "./pages/ForgotPassword";
 import Login from "./pages/Login";
+import MedicalHistory from "./pages/MedicalHistory";
 import OTPVerification from "./pages/OTPVerification/OTPVerification";
+import ProfileDetails from "./pages/Profile/ProfileDetails";
+import ProfileEdit from "./pages/Profile/ProfileEdit";
 import Register from "./pages/Register";
 
-const appRoutes = [
+const routes = [
   {
     id: 1,
-  },
-];
-
-const authRoutes = [
-  {
-    id: 1,
-    path: "/login",
-    element: <Login />,
+    Layout: <AuthLayout />,
+    routes: [
+      {
+        id: 1,
+        path: "/login",
+        element: <Login />,
+      },
+      {
+        id: 2,
+        path: "/register",
+        element: <Register />,
+      },
+      {
+        id: 3,
+        path: "/forgot-password",
+        element: <ForgotPassword />,
+      },
+      {
+        id: 4,
+        path: "/otp-verification",
+        element: <OTPVerification />,
+      },
+    ],
   },
   {
     id: 2,
-    path: "/register",
-    element: <Register />,
+    Layout: <AppLayout />,
+    routes: [
+      {
+        id: 1,
+        path: "/dashboard",
+        element: <h1>Dashboard</h1>,
+      },
+      {
+        id: 2,
+        path: "/medical-history",
+        element: <MedicalHistory />,
+      },
+    ],
   },
   {
     id: 3,
-    path: "/forgot-password",
-    element: <ForgotPassword />,
-  },
-  {
-    id: 4,
-    path: "/otp-verification",
-    element: <OTPVerification />,
+    Layout: <ProfileLayout />,
+    routes: [
+      {
+        id: 1,
+        path: "/profile",
+        element: <ProfileDetails />,
+      },
+      {
+        id: 2,
+        path: "/profile/edit",
+        element: <ProfileEdit />,
+      },
+    ],
   },
 ];
 
-export { appRoutes, authRoutes };
+export default routes;

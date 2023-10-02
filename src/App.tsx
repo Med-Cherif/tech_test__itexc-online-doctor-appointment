@@ -1,24 +1,23 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 // import AppLayout from "./components/layouts/AppLayout";
-import AuthLayout from "./components/layouts/AuthLayout";
-import { authRoutes } from "./routes";
+
+import routes from "./routes";
 
 function App() {
   return (
     <>
       <Routes>
-        {/* <Route path="/" element={<AppLayout />}>
-          {appRoutes.map((route) => {
-            const {} = route
-            return <Route key={route.id} />
-          })}
-        </Route> */}
-        <Route path="/" element={<AuthLayout />}>
-          {authRoutes.map((route) => {
-            const { id, ...rest } = route;
-            return <Route key={id} {...rest} />;
-          })}
-        </Route>
+        <Route path="/" element={<Navigate to="/dashboard" replace />} />
+        {routes.map((route) => {
+          return (
+            <Route key={route.id} path="/" element={route.Layout}>
+              {route.routes.map((r) => {
+                const { id, ...rest } = r;
+                return <Route key={id} {...rest} />;
+              })}
+            </Route>
+          );
+        })}
       </Routes>
     </>
   );

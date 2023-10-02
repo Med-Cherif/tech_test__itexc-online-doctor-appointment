@@ -1,0 +1,29 @@
+header {
+  padding: 12px 32px;
+  height: 82px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: red;
+  background-color: $white-color;
+  border-bottom: 1px solid $gray-2-color;
+
+  .logo {
+    width: 150px;
+  }
+
+  .header-right-side {
+    display: flex;
+    align-items: center;
+    gap: 56px;
+  }
+
+  .header-icons-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    > * {
+      font-size: 26px;
+    }
+  }
+}

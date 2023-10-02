@@ -1,0 +1,22 @@
+@mixin badgeColor($color, $background) {
+  color: $color;
+  background: $background;
+}
+.badge {
+  padding: 10px 16px;
+  border-radius: $border-radius-sm;
+  @include center;
+  font-size: 14px;
+
+  &.badge-success {
+    @include badgeColor(#479b36, #cffcd4);
+  }
+
+  &.badge-danger {
+    @include badgeColor(#981c19, #ffe4db);
+  }
+
+  &.badge-warning {
+    @include badgeColor(#8b601d, #fff7d0);
+  }
+}

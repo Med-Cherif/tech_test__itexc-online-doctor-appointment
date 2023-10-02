@@ -1,0 +1,15 @@
+.table-medical-patient-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  .table-medical-patient-name {
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  .table-medical-patient-code {
+    font-size: 14px;
+    color: $gray-1-color;
+  }
+}

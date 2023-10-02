@@ -1,0 +1,20 @@
+.sidebar {
+  padding: 20px 16px;
+  border-right: 1px solid $gray-2-color;
+  height: calc(100vh - $navbar-height);
+  overflow: auto;
+}
+
+.sidebar-link {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  gap: 8px;
+  padding: 10px 16px;
+  //   background-color: green;
+  border-radius: $border-radius-xs;
+  &.active {
+    background-color: $gray-3-color;
+  }
+}

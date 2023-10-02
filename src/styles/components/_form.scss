@@ -1,0 +1,47 @@
+.form-label {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 4px;
+  display: inline-block;
+}
+
+.form-control {
+  display: block;
+  border-radius: $border-radius;
+  outline: none;
+  width: 100%;
+  padding: 16px 12px;
+  border: 1px solid $gray-1-color;
+
+  &[type="checkbox"] {
+    width: fit-content;
+  }
+}
+
+.otp-input-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  .otp-input {
+    text-align: center;
+    @include square(54px);
+    @include screen-medium {
+      @include square(38px);
+    }
+  }
+}
+
+.form-control::placeholder {
+  color: $gray-1-color;
+}
+
+.checkbox-wrapper {
+  @extend .flex;
+  @extend .align-items-center;
+  gap: 4px;
+
+  .checkbox-text {
+    font-size: $font-size-extra-small;
+  }
+}

@@ -1,0 +1,22 @@
+// $variants: primary, light;
+
+.btn {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  cursor: pointer;
+  padding: 12px 24px;
+
+  &.btn-rounded {
+    border-radius: $border-radius;
+  }
+
+  &.btn-primary {
+    background-color: $primary-color;
+    color: #fff;
+  }
+  &.btn-light {
+    background-color: #fff;
+    border: 1px solid $gray-1-color;
+  }
+}

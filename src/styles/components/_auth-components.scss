@@ -1,0 +1,63 @@
+.auth-title {
+  font-weight: 600;
+  font-size: 32px;
+
+  display: flex;
+  align-items: center;
+  gap: 4px;
+
+  @include screen-medium {
+    font-size: 24px;
+  }
+}
+
+.auth-description {
+  font-size: 14px;
+  color: #848fac;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 40px 0 40px;
+}
+
+.forgot-password-wrapper {
+}
+
+.forgot-password-link {
+  font-size: $font-size-extra-small;
+}
+
+.remember-me-text {
+  font-size: $font-size-extra-small;
+}
+
+.auth-social-button {
+  @include center;
+  gap: 8px;
+}
+
+.or-text {
+  // margin: 20px 0;
+  font-weight: 600;
+}
+
+.auth-actions-wrapper {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.auth-social-buttons-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.auth-helper-text {
+  text-align: center;
+  font-size: $font-size-extra-small;
+}

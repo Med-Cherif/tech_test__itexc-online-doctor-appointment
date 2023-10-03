@@ -6,6 +6,9 @@ import routes from "./routes";
 function App() {
   return (
     <>
+      {/* <Routes>
+        <Route path="/dashboard" element={<h2>Hello world</h2>} />
+      </Routes> */}
       <Routes>
         <Route path="/" element={<Navigate to="/dashboard" replace />} />
         {routes.map((route) => {

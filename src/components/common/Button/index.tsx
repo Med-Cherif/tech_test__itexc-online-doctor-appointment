@@ -1,6 +1,6 @@
 import { ButtonHTMLAttributes } from "react";
 
-type TButtonVariant = "primary" | "light";
+type TButtonVariant = "primary" | "light" | "gray" | "simple";
 
 export interface TButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   fullWidth?: boolean;

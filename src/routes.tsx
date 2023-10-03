@@ -5,6 +5,7 @@ import ForgotPassword from "./pages/ForgotPassword";
 import Login from "./pages/Login";
 import MedicalHistory from "./pages/MedicalHistory";
 import OTPVerification from "./pages/OTPVerification/OTPVerification";
+import PatientsList from "./pages/Patients/PatientsList";
 import ProfileDetails from "./pages/Profile/ProfileDetails";
 import ProfileEdit from "./pages/Profile/ProfileEdit";
 import Register from "./pages/Register";
@@ -49,6 +50,11 @@ const routes = [
         id: 2,
         path: "/medical-history",
         element: <MedicalHistory />,
+      },
+      {
+        id: 3,
+        path: "/patients",
+        element: <PatientsList />,
       },
     ],
   },

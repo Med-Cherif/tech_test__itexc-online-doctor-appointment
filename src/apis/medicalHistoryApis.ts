@@ -1,8 +1,8 @@
-import axiosInstance from ".";
+import { axiosMockApiInstance } from ".";
 
 const medicalHistoryApis = {
   getAll() {
-    return axiosInstance.get("/medical-history").then((res) => res.data);
+    return axiosMockApiInstance.get("/medical-history").then((res) => res.data);
   },
 };
 

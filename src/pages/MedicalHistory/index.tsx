@@ -1,4 +1,5 @@
-import DataTable, { TableColumn, Selector } from "react-data-table-component";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { TableColumn } from "react-data-table-component";
 import Card from "../../components/common/Card";
 import CardBody from "../../components/common/Card/CardBody";
 import PageTitle from "../../components/common/PageTitle";
@@ -30,7 +31,7 @@ const columns: TableColumn<TMedicalReport>[] = [
             </div>
           </div>
         </>
-      );
+      ) as any;
     },
   },
   {
@@ -56,8 +57,10 @@ const columns: TableColumn<TMedicalReport>[] = [
     selector: (item, index) => {
       const statues = ["success", "danger", "warning"];
       return (
-        <Badge variant={statues[index % statues.length]}>{item.status}</Badge>
-      );
+        <Badge variant={statues[index! % statues.length] as any}>
+          {item.status}
+        </Badge>
+      ) as any;
     },
   },
   {
@@ -86,7 +89,7 @@ const MedicalHistory = () => {
             // progressPending={true}
             // progressComponent
             data={data}
-            columns={columns}
+            columns={columns as any}
           />
         </CardBody>
       </Card>

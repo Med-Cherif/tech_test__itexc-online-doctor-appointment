@@ -8,4 +8,10 @@
     padding: 20px;
     overflow: auto;
   }
+  @include screen-medium {
+    display: block;
+    .app-layout-content {
+      height: auto;
+    }
+  }
 }

@@ -3,6 +3,10 @@
   border-right: 1px solid $gray-2-color;
   height: calc(100vh - $navbar-height);
   overflow: auto;
+
+  @include screen-medium {
+    display: none;
+  }
 }
 
 .sidebar-link {

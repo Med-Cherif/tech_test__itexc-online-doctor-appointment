@@ -7,10 +7,22 @@
   cursor: pointer;
   padding: 12px 24px;
 
+  @include screen-small {
+    font-size: 12px;
+    padding: 12px 18px;
+  }
+
   &.btn-rounded {
     border-radius: $border-radius;
   }
 
+  &.button-icon {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  /** Variants */
   &.btn-primary {
     background-color: $primary-color;
     color: #fff;
@@ -18,5 +30,14 @@
   &.btn-light {
     background-color: #fff;
     border: 1px solid $gray-1-color;
+  }
+  &.btn-gray {
+    background-color: $gray-3-color;
+    // color: $text-2-color;
+  }
+
+  &.btn-simple {
+    border: none;
+    background: none;
   }
 }

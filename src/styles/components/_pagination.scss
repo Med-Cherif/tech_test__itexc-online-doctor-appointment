@@ -1,0 +1,52 @@
+.pagination-parent {
+  display: flex;
+  justify-content: flex-end;
+  margin: 16px 0;
+  @include screen-medium {
+    justify-content: center;
+  }
+  .pagination {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    .pagination-pages {
+      display: flex;
+      align-items: center;
+    }
+    .pagination-dots {
+      display: inline-block;
+      margin: 0 4px;
+      font-size: 18px;
+    }
+    .pagination-chevron {
+      background: none;
+      border: none;
+      outline: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      &:disabled {
+        cursor: not-allowed;
+      }
+    }
+    .pagination-page-button {
+      $size: 36px;
+      width: $size;
+      height: $size;
+      border: none;
+      outline: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: $gray-4-color;
+      background: none;
+      cursor: pointer;
+      &.active {
+        color: $black-color;
+        background-color: $gray-3-color;
+        border-radius: $border-radius;
+      }
+    }
+  }
+}

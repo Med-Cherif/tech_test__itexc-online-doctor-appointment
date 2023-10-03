@@ -8,6 +8,10 @@ header {
   background-color: $white-color;
   border-bottom: 1px solid $gray-2-color;
 
+  @include screen-small {
+    display: none;
+  }
+
   .logo {
     width: 150px;
   }

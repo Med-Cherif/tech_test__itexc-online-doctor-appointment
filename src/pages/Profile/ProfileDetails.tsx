@@ -7,21 +7,20 @@ import { Link } from "react-router-dom";
 import { CiLocationOn } from "react-icons/ci";
 import Avatar from "../../components/common/Avatar";
 import profilePicture from "../../assets/profile/cover-picture.png";
-import coverPicture from "../../assets/profile/cover-picture.png";
+// import coverPicture from "../../assets/profile/cover-picture.png";
+import ProfileCoverPicture from "../../components/profile/ProfileCoverPicture";
 
 const ProfileDetails = () => {
   return (
     <div className="profile-details">
       <Card>
-        <div className="cover-picture-wrapper">
-          <img className="cover-picture" src={coverPicture} alt="" />
-        </div>
+        <ProfileCoverPicture />
         <CardBody>
           <div className="profile-info-wrapper">
+            <div className="profile-avatar-wrapper">
+              <Avatar src={profilePicture} className="profile-avatar" />
+            </div>
             <div className="profile-data">
-              <div className="profile-avatar-wrapper">
-                <Avatar src={profilePicture} size={140} />
-              </div>
               <div>
                 <h2 className="profile-name">Dr. Taylor gomez</h2>
                 <p className="profile-text profile-speciality">
@@ -32,14 +31,14 @@ const ProfileDetails = () => {
                   <span>Alger, Algeria</span>
                 </div>
               </div>
-            </div>
-            <div className="profile-actions">
-              <Link to={"/profile/edit"}>
-                <Button className="edit-profile-button" variant="light">
-                  <AiOutlineEdit />
-                  Edit Profile
-                </Button>
-              </Link>
+              <div className="profile-actions">
+                <Link to={"/profile/edit"}>
+                  <Button className="edit-profile-button" variant="light">
+                    <AiOutlineEdit />
+                    <span>Edit Profile</span>
+                  </Button>
+                </Link>
+              </div>
             </div>
           </div>
         </CardBody>

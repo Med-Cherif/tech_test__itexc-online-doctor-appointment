@@ -1,4 +1,4 @@
-@mixin screen-small-screen {
+@mixin screen-small {
   @media (max-width: $screen-sm) {
     @content;
   }

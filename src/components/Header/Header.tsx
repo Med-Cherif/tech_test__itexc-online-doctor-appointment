@@ -18,7 +18,9 @@ const Navbar = () => {
           <AiOutlineSetting />
         </div>
         <div>
-          <Avatar src={avatar} />
+          <Link to="/profile">
+            <Avatar src={avatar} />
+          </Link>
         </div>
       </div>
     </header>

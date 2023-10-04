@@ -10,6 +10,7 @@ import PatientItemCard from "../../components/patients/PatientItemCard";
 import Pagination from "../../components/common/Pagination";
 import { usePaginationData } from "../../hooks/paginationHooks";
 import { TPatient } from "../../types/patient";
+import MobileHeader from "../../components/Header/MobileHeader";
 
 const PAGE_SIZE = 8;
 
@@ -25,6 +26,7 @@ const PatientsList = () => {
 
   return (
     <div>
+      <MobileHeader title="Patient List" />
       <PageTitle text="Patient List" />
       <div className="patient-list-actions">
         <div className="patient-list-actions-input-wrapper">

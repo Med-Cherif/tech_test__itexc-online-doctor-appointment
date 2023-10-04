@@ -61,6 +61,8 @@ export const useGetUserAuth = () => {
       return authApis.getProfileData();
     },
     enabled: !!accessToken && !userData,
+    cacheTime: 0,
+    staleTime: 0,
   });
 
   useEffect(() => {

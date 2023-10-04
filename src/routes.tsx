@@ -1,6 +1,8 @@
 import AppLayout from "./components/layouts/AppLayout";
 import AuthLayout from "./components/layouts/AuthLayout";
 import ProfileLayout from "./components/layouts/ProfileLayout";
+import Appointments from "./pages/Appointments";
+import Dashboard from "./pages/Dashboard";
 import ForgotPassword from "./pages/ForgotPassword";
 import Login from "./pages/Login";
 import MedicalHistory from "./pages/MedicalHistory";
@@ -44,7 +46,7 @@ const routes = [
       {
         id: 1,
         path: "/dashboard",
-        element: <h1>Dashboard</h1>,
+        element: <Dashboard />,
       },
       {
         id: 2,
@@ -55,6 +57,11 @@ const routes = [
         id: 3,
         path: "/patients",
         element: <PatientsList />,
+      },
+      {
+        id: 4,
+        path: "/appointment",
+        element: <Appointments />,
       },
     ],
   },

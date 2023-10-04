@@ -8,7 +8,7 @@ header {
   background-color: $white-color;
   border-bottom: 1px solid $gray-2-color;
 
-  @include screen-small {
+  @include screen-medium {
     display: none;
   }
 
@@ -29,5 +29,30 @@ header {
     > * {
       font-size: 26px;
     }
+  }
+}
+
+.mobile-header {
+  @include between(8px);
+  margin-bottom: 30px;
+  display: none;
+  svg {
+    font-size: 20px;
+    cursor: pointer;
+  }
+  .mobile-header-title {
+    font-size: 16px;
+    font-weight: 600;
+  }
+  .mobile-header-notification {
+    position: relative;
+    .count-badge {
+      position: absolute;
+      top: -30%;
+      right: -30%;
+    }
+  }
+  @include screen-medium {
+    display: flex;
   }
 }

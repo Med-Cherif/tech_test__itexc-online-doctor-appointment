@@ -1,0 +1,19 @@
+.dashboard-statistics {
+  display: grid;
+  grid-template-columns: 7fr 5fr;
+  .dashboard-chart {
+    background-color: green;
+    height: 300px;
+  }
+  .dashboard-calendar {
+    background-color: red;
+    height: 300px;
+  }
+
+  @include screen-large {
+    grid-template-columns: 1fr;
+    .dashboard-calendar {
+      order: -1;
+    }
+  }
+}

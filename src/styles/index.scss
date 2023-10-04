@@ -18,6 +18,7 @@
 @import "layouts/app-layout";
 
 // components
+@import "components/count-badge";
 @import "components/page-title";
 @import "components/form";
 @import "components/button";
@@ -35,6 +36,8 @@
 
 // Pages
 @import "pages/medical-reports";
+@import "pages/dashboard";
+@import "pages/appointment";
 
 // Libraries
 @import "libraries/data-table";

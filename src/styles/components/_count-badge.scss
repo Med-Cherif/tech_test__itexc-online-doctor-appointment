@@ -1,0 +1,9 @@
+.count-badge {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: #1678f2;
+  color: #fff;
+  font-size: 12px;
+  @include center;
+}

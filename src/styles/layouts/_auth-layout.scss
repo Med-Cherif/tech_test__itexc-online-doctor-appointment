@@ -2,8 +2,9 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   min-height: 100vh;
+  overflow-x: hidden;
 
-  @include screen-medium {
+  @include screen-large {
     grid-template-columns: 1fr;
   }
 
@@ -11,7 +12,7 @@
     padding: 20px;
     @include center;
 
-    @include screen-medium {
+    @include screen-large {
       align-items: flex-start;
     }
 
@@ -22,10 +23,86 @@
   }
 
   .auth-bg {
+    position: relative;
     background-color: $light-blue-color;
 
-    @include screen-medium {
+    @include screen-large {
       display: none;
+    }
+
+    .auth-bg-texts {
+      color: #fff;
+      padding: 30px 24px 16px;
+      h2 {
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 4px;
+        font-weight: 500;
+      }
+      // padding: 20px 0;
+    }
+
+    .auth-bg-wrapper {
+      position: absolute;
+      // display: flex;
+      // justify-content: center;
+      width: 100%;
+      // padding: 20px;
+      text-align: center;
+    }
+
+    .auth-bg-notes {
+      // display: grid;
+      // position: relative;
+      // width: 100%;
+      // display: flex;
+      // flex-direction: column;
+
+      .auth-bg-note {
+        // grid-column: 1 / 2;
+        // grid-row: 1 / 2;
+        // position: absolute;
+        // width: fit-content;
+        // height: fit-content;
+        &.auth-bg-note-1 {
+          // z-index: 2;
+          display: flex;
+          justify-content: flex-start;
+          justify-self: flex-start;
+          z-index: 2;
+          position: relative;
+          transform: translateX(20px);
+          width: fit-content;
+        }
+        &.auth-bg-note-2 {
+          display: flex;
+          z-index: -1;
+          justify-content: flex-end;
+          img {
+            margin-top: -100px;
+            // transform: translate();
+          }
+        }
+        // img
+      }
+    }
+
+    .mask-image-wrapper {
+      height: 100%;
+      display: flex;
+      align-items: end;
+
+      .mask-image {
+        width: 100%;
+        display: block;
+        object-fit: cover;
+      }
     }
   }
 }
+
+// .auth-bg {
+
+// }

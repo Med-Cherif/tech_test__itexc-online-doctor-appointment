@@ -20,28 +20,34 @@ $profile-avatar: 140px;
 //       }
 // }
 
+@mixin sizeHandler($size) {
+  width: $size !important;
+  height: $size !important;
+}
+
+@mixin marginTopHanlder($profile-avatar) {
+  margin-top: calc($profile-avatar / -2) - calc($card-body-padding / 2);
+}
+
 .profile-avatar-wrapper {
-  margin-top: -$profile-avatar / 2 - $card-body-padding / 2;
+  // margin-top: -$profile-avatar / 2 - $card-body-padding / 2;
+  @include marginTopHanlder($profile-avatar);
   @include screen-medium {
     $profile-avatar: 56px;
-    margin-top: -$profile-avatar / 2 - $card-body-padding / 2;
+    @include marginTopHanlder($profile-avatar);
   }
   // transform: translateY(calc(-50% - $card-body-padding / 2));
   .profile-avatar {
-    width: $profile-avatar !important;
-    height: $profile-avatar !important;
+    @include sizeHandler($profile-avatar);
     > * {
-      width: $profile-avatar !important;
-      height: $profile-avatar !important;
+      @include sizeHandler($profile-avatar);
     }
 
     @include screen-medium {
       $profile-avatar: 56px;
-      width: $profile-avatar !important;
-      height: $profile-avatar !important;
+      @include sizeHandler($profile-avatar);
       > * {
-        width: $profile-avatar !important;
-        height: $profile-avatar !important;
+        @include sizeHandler($profile-avatar);
       }
     }
   }
@@ -63,7 +69,7 @@ $profile-avatar: 140px;
   flex: 1;
   @include screen-medium {
     // Half width of Avatar - Card Padding
-    margin-top: -calc($profile-avatar / 2 - $card-body-padding);
+    margin-top: -calc(calc($profile-avatar / 2) - $card-body-padding);
   }
   // gap: 20px;
 }

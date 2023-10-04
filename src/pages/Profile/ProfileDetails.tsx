@@ -9,8 +9,12 @@ import Avatar from "../../components/common/Avatar";
 import profilePicture from "../../assets/profile/cover-picture.png";
 // import coverPicture from "../../assets/profile/cover-picture.png";
 import ProfileCoverPicture from "../../components/profile/ProfileCoverPicture";
+import { useAppSelector } from "../../hooks/useRedux";
+import { useGetUserAuth } from "../../hooks/useAuth";
 
 const ProfileDetails = () => {
+  useGetUserAuth();
+  const { userData } = useAppSelector((state) => state.user);
   return (
     <div className="profile-details">
       <Card>
@@ -22,9 +26,9 @@ const ProfileDetails = () => {
             </div>
             <div className="profile-data">
               <div>
-                <h2 className="profile-name">Dr. Taylor gomez</h2>
+                <h2 className="profile-name">{userData?.name}</h2>
                 <p className="profile-text profile-speciality">
-                  Specialist of skin surgery in Moustafa bacha
+                  {userData?.speciality}
                 </p>
                 <div className="profile-location">
                   <CiLocationOn />
@@ -47,10 +51,7 @@ const ProfileDetails = () => {
         <CardBody>
           <ProfileTitle text="Profile Description" />
           <p className="profile-description profile-text">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero
-            quidem qui praesentium nam, beatae sit placeat soluta aut iure enim
-            sunt impedit natus eaque itaque velit necessitatibus dolor illum
-            non.
+            {userData?.description}
           </p>
         </CardBody>
       </Card>

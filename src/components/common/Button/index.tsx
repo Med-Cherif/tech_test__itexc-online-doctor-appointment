@@ -5,6 +5,7 @@ type TButtonVariant = "primary" | "light" | "gray" | "simple";
 export interface TButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   fullWidth?: boolean;
   variant?: TButtonVariant;
+  isLoading?: boolean;
 }
 
 const Button = ({
@@ -12,10 +13,12 @@ const Button = ({
   variant = "primary",
   className = "",
   fullWidth,
+  isLoading,
   ...rest
 }: TButtonProps) => {
   return (
     <button
+      disabled={isLoading}
       className={`btn btn-${variant} btn-rounded ${
         fullWidth ? "full-width" : ""
       } ${className}
@@ -23,7 +26,7 @@ const Button = ({
         `}
       {...rest}
     >
-      {children}
+      {isLoading ? "Loading..." : children}
     </button>
   );
 };

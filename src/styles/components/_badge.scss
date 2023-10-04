@@ -9,14 +9,14 @@
   font-size: 14px;
 
   &.badge-success {
-    @include badgeColor(#479b36, #cffcd4);
+    @include badgeColor($bg-success, $text-success);
   }
 
   &.badge-danger {
-    @include badgeColor(#981c19, #ffe4db);
+    @include badgeColor($bg-danger, $text-danger);
   }
 
   &.badge-warning {
-    @include badgeColor(#8b601d, #fff7d0);
+    @include badgeColor($bg-warning, $text-warning);
   }
 }

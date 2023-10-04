@@ -60,3 +60,9 @@ a {
 ul {
   list-style: none;
 }
+
+.form-error-message {
+  color: $bg-danger;
+  font-size: 14px;
+  margin-top: 4px;
+}

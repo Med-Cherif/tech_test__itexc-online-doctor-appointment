@@ -1,19 +1,66 @@
-.dashboard-statistics {
-  display: grid;
-  grid-template-columns: 7fr 5fr;
-  .dashboard-chart {
-    background-color: green;
-    height: 300px;
-  }
-  .dashboard-calendar {
-    background-color: red;
-    height: 300px;
-  }
-
-  @include screen-large {
-    grid-template-columns: 1fr;
+.dashboard-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  .dashboard-statistics {
+    display: grid;
+    grid-template-columns: 7fr 5fr;
+    gap: 20px;
+    .dashboard-chart {
+      // background-color: green;
+      // height: 300px;
+      .page-title {
+        margin: 16px 0;
+      }
+    }
     .dashboard-calendar {
-      order: -1;
+      .calendar-title {
+        @include between;
+        margin-bottom: 16px;
+        .card-title {
+          margin-bottom: 0;
+        }
+      }
+      .dashboard-calendar-upcoming {
+        margin-top: 12px;
+        .dashboard-calendar-upcoming-header {
+          @include between;
+          margin-bottom: 8px;
+          h2 {
+            font-size: 20px;
+            font-weight: 600;
+          }
+          a {
+            text-decoration: underline;
+          }
+        }
+        .upcoming-meeting-item {
+          display: flex;
+          cursor: pointer;
+          gap: 16px;
+          background-color: $gray-5-color;
+          padding: 6px 10px;
+          border-radius: $border-radius;
+          .upcoming-meeting-item-title {
+            font-size: 16px;
+            font-weight: 500;
+          }
+          .upcoming-meeting-item-time {
+            font-size: 12px;
+            .upcoming-meeting-item-time-separator {
+              display: inline-block;
+              margin: 0 6px;
+            }
+          }
+        }
+      }
+    }
+
+    @include screen-large {
+      grid-template-columns: 1fr;
+      .dashboard-calendar {
+        order: -1;
+      }
     }
   }
 }

@@ -1,0 +1,64 @@
+.calendar-wrapper {
+  .calendar-header {
+    @include between;
+    .calendar-year-month {
+      font-size: 14px;
+    }
+    .calendar-header-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      svg {
+        font-size: 20px;
+        cursor: pointer;
+      }
+    }
+  }
+  hr {
+    outline: none;
+    background: none;
+    border: none;
+    display: block;
+    width: 100%;
+    margin: 8px 0;
+    height: 1px;
+    background-color: $gray-2-color;
+  }
+  .calendar {
+    width: 100%;
+    //   max-width: 300px;
+    //   margin: auto;
+
+    thead {
+      td {
+        font-size: 12px;
+        font-weight: 500;
+      }
+    }
+
+    tbody {
+      td {
+        font-size: 14px;
+        cursor: pointer;
+        position: relative;
+        .day-marker {
+          @include circle(6px);
+          background-color: red;
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          transform: translateX(-50%);
+          display: none;
+          .marked {
+            display: inline-block;
+          }
+        }
+      }
+    }
+
+    td {
+      padding: 10px 0;
+      text-align: center;
+    }
+  }
+}

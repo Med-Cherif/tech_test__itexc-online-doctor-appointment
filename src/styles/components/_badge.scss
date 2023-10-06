@@ -6,7 +6,7 @@
   padding: 10px 16px;
   border-radius: $border-radius-sm;
   @include center;
-  font-size: 14px;
+  font-size: 12px;
 
   &.badge-success {
     @include badgeColor($bg-success, $text-success);

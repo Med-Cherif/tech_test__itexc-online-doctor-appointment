@@ -1,10 +1,16 @@
 body {
   .rdt_Table {
-    .rdt_TableHeadRow {
-      background-color: $gray-3-color;
-      border-radius: $border-radius-sm;
-      border-bottom: 0;
-      min-height: 40px;
+    .rdt_TableHead {
+      margin-bottom: 12px;
+      .rdt_TableHeadRow {
+        background-color: $gray-3-color;
+        border-radius: $border-radius-sm;
+        border-bottom: 0;
+        min-height: 40px;
+      }
+    }
+    .rdt_TableBody {
+      gap: 16px;
     }
     .rdt_TableRow {
       border-bottom: 0;

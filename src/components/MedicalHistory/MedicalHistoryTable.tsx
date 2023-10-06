@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 // import React from 'react'
-import Card from "../common/Card";
-import CardBody from "../common/Card/CardBody";
+// import Card from "../common/Card";
+// import CardBody from "../common/Card/CardBody";
 import DataTableComponent from "../common/DataTableComponent";
 import Badge from "../common/Badge";
 import { AiOutlineEyeInvisible } from "react-icons/ai";
@@ -14,9 +14,9 @@ import { useMedicalHistory } from "../../hooks/useMedicalHistory";
 const columns: TableColumn<TMedicalReport>[] = [
   {
     name: "Patient",
-    minWidth: "200px",
+    minWidth: "180px",
 
-    selector: (item) => {
+    cell: (item) => {
       return (
         <>
           <div className="table-medical-patient-wrapper">
@@ -31,30 +31,36 @@ const columns: TableColumn<TMedicalReport>[] = [
             </div>
           </div>
         </>
-      ) as any;
+      );
     },
   },
   {
+    grow: 2,
     name: "Appointment",
-    selector: (item) => {
+    cell: (item) => {
       return item.appointment;
     },
   },
   {
     name: "Date",
+    minWidth: "auto",
+
     selector: (item) => {
       return item.date;
     },
   },
   {
     name: "Time",
-    selector: (item) => {
-      return item.time;
+    // minWidth: "auto",
+    selector(row) {
+      return row.time;
     },
   },
   {
     name: "Status",
-    selector: (item, index) => {
+
+    minWidth: "120px",
+    cell: (item, index) => {
       const statues = ["success", "danger", "warning"];
       return (
         <Badge variant={statues[index! % statues.length] as any}>
@@ -65,7 +71,7 @@ const columns: TableColumn<TMedicalReport>[] = [
   },
   {
     name: "Action",
-    selector: () => {
+    cell: () => {
       return (
         <div>
           <AiOutlineEyeInvisible />
@@ -79,16 +85,12 @@ const columns: TableColumn<TMedicalReport>[] = [
 const MedicalHistoryTable = () => {
   const { data } = useMedicalHistory();
   return (
-    <Card>
-      <CardBody>
-        <DataTableComponent
-          pagination
-          paginationPerPage={10}
-          data={data}
-          columns={columns as any}
-        />
-      </CardBody>
-    </Card>
+    <DataTableComponent
+      pagination
+      paginationPerPage={10}
+      data={data}
+      columns={columns as any}
+    />
   );
 };
 

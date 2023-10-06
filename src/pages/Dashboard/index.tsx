@@ -1,23 +1,27 @@
+import DashboardCalendar from "../../components/Dashboard/DashboardCalendar";
+import DashboardChart from "../../components/Dashboard/DashboardChart";
+import DashboardMedicalHistory from "../../components/Dashboard/DashboardMedicalHistory";
 import MobileHeader from "../../components/Header/MobileHeader";
-import MedicalHistoryTable from "../../components/MedicalHistory/MedicalHistoryTable";
-import PageTitle from "../../components/common/PageTitle";
+// import MedicalHistoryTable from "../../components/MedicalHistory/MedicalHistoryTable";
+// import Card from "../../components/common/Card";
+import PageWrapper from "../../components/page/PageWrapper";
+// import PageTitle from "../../components/common/PageTitle";
 
 const Dashboard = () => {
   return (
-    <div>
-      <MobileHeader title="Dashboard" />
-      <div className="dashboard-content">
-        <div className="dashboard-statistics">
-          <div className="dashboard-chart">
-            <PageTitle text="Welcome Back Dr.Taylor!" />
-            <div></div>
+    <PageWrapper title="Dashboard">
+      <div className="dashboard-page">
+        <MobileHeader title="Dashboard" />
+        <div className="dashboard-content">
+          <div className="dashboard-statistics">
+            <DashboardChart />
+            <DashboardCalendar />
           </div>
-          <div className="dashboard-calendar"></div>
-        </div>
 
-        <MedicalHistoryTable />
+          <DashboardMedicalHistory />
+        </div>
       </div>
-    </div>
+    </PageWrapper>
   );
 };
 

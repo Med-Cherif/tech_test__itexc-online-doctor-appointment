@@ -1,0 +1,66 @@
+$marginArray: 2 4 8 12 16 20 24 28 32 36 40 44 48 52;
+
+@for $i from 1 through length($marginArray) {
+  $value: nth($marginArray, $i);
+  $index: $i;
+
+  .m-#{$index} {
+    margin: #{$value}px;
+  }
+
+  .mt-#{$index} {
+    margin-top: #{$value}px;
+  }
+
+  .mr-#{$index} {
+    margin-right: #{$value}px;
+  }
+
+  .mb-#{$index} {
+    margin-bottom: #{$value}px;
+  }
+
+  .ml-#{$index} {
+    margin-left: #{$value}px;
+  }
+
+  .mx-#{$index} {
+    margin-left: #{$value}px;
+    margin-right: #{$value}px;
+  }
+
+  .my-#{$index} {
+    margin-top: #{$value}px;
+    margin-bottom: #{$value}px;
+  }
+
+  .p-#{$index} {
+    padding: #{$value}px;
+  }
+
+  .pt-#{$index} {
+    padding-top: #{$value}px;
+  }
+
+  .pr-#{$index} {
+    padding-right: #{$value}px;
+  }
+
+  .pb-#{$index} {
+    padding-bottom: #{$value}px;
+  }
+
+  .pl-#{$index} {
+    padding-left: #{$value}px;
+  }
+
+  .px-#{$index} {
+    padding-left: #{$value}px;
+    padding-right: #{$value}px;
+  }
+
+  .py-#{$index} {
+    padding-top: #{$value}px;
+    padding-bottom: #{$value}px;
+  }
+}

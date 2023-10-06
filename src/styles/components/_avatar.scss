@@ -6,7 +6,8 @@
   }
   .avatar-alt {
     border: 1px solid $gray-1-color;
-    background-color: $gray-2-color;
+    background-color: #2952cc;
+    color: $white-color;
     border-radius: 50%;
     @include center;
   }

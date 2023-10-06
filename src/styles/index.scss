@@ -9,6 +9,7 @@
 @import "./variables/breakpoints";
 
 // helpers
+@import "helpers/spacing-classes";
 @import "helpers/classes";
 @import "helpers/mixins";
 @import "helpers/media-query";
@@ -33,6 +34,7 @@
 @import "components/patients-components";
 @import "components/auth-components";
 @import "components/profile-components";
+@import "components/calendar";
 
 // Pages
 @import "pages/medical-reports";

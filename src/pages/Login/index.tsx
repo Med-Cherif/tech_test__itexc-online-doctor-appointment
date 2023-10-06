@@ -18,9 +18,10 @@ import loginSchema from "../../schemas/loginSchema";
 import { yupResolver } from "@hookform/resolvers/yup/src/yup.js";
 import { handleUseFormErrors } from "../../helpers/handleUseFormErrors";
 import FormErrorMessage from "../../components/common/form/FormErrorMessage";
+import Alert from "../../components/common/Alert";
 
 const Login = () => {
-  const { form, mutation, onSubmitSuccess } = useAuth("login", {
+  const { form, mutation, error, onSubmitSuccess } = useAuth("login", {
     resolver: yupResolver(loginSchema) as any,
   });
 
@@ -37,6 +38,7 @@ const Login = () => {
       <AuthDescription description="Enter your account to use healthy 24 service" />
 
       <div className="auth-form">
+        {error && <Alert>{error}</Alert>}
         <div>
           <Label>Email</Label>
           <Input placeholder="Enter Your email here" {...register("email")} />

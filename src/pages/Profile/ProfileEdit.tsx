@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useRef } from "react";
 import ProfileTitle from "../../components/profile/ProfileTitle";
@@ -9,36 +10,60 @@ import ProfileCoverPicture from "../../components/profile/ProfileCoverPicture";
 import Avatar from "../../components/common/Avatar";
 import coverPic from "../../assets/profile/cover-picture.png";
 import Button from "../../components/common/Button";
-import { useForm } from "react-hook-form";
-import { useGetUserAuth } from "../../hooks/useAuth";
+import { useForm, Controller } from "react-hook-form";
 import { useAppSelector } from "../../hooks/useRedux";
 import { useMutation } from "@tanstack/react-query";
 import { useNavigate } from "react-router-dom";
+import handleFileChange from "../../helpers/fileHelpers";
+import { useUpdateProfileData } from "../../hooks/useAuth";
+import handleFormData from "../../helpers/handleFormData";
+import { TObject } from "../../types/TObject";
 
 const ProfileEdit = () => {
   const profilePicRef = useRef<HTMLInputElement>(null);
 
   const navigate = useNavigate();
 
-  const { isLoading } = useGetUserAuth();
-
   const { userData } = useAppSelector((state) => state.user);
 
+  const { isLoading, mutate } = useUpdateProfileData();
+
   const { register, control, handleSubmit } = useForm({
-    values: userData ?? ({} as any),
+    values: userData
+      ? {
+          ...userData,
+          profilePicture: {
+            file: null,
+            url: userData.profilePicture,
+          },
+        }
+      : ({} as any),
   });
 
   const openChangePhotoInput = () => {
     profilePicRef.current?.click();
   };
 
-  const { mutate, isLoading: isSubmitting } = useMutation({});
+  // const onDeleteImage = () => {
+
+  // }
 
   const onCancel = () => {
     navigate("/profile");
   };
 
-  const onSubmit = () => {};
+  const onSubmit = (data: any) => {
+    const { name, description, speciality, profilePicture } = data;
+    const formData = handleFormData({
+      name,
+      description,
+      speciality,
+      profilePicture: profilePicture.file || profilePicture.url || null,
+    });
+
+    // console.log(data);
+    mutate(formData);
+  };
 
   return (
     <div className="profile-edit">
@@ -55,22 +80,47 @@ const ProfileEdit = () => {
             </div>
             <div>
               <Label>Profile Picture</Label>
-              <div className="edit-profile-picture">
-                <Avatar src={coverPic} />
-                <input
-                  ref={profilePicRef}
-                  type="file"
-                  accept="image/*"
-                  style={{ display: "none" }}
-                  onChange={() => {}}
-                />
-                <div className="edit-profile-buttons">
-                  <Button onClick={openChangePhotoInput}>Change Photo</Button>
-                  <Button className="delete-photo-button" variant="light">
-                    Delete
-                  </Button>
-                </div>
-              </div>
+              <Controller
+                name="profilePicture"
+                control={control}
+                render={({ field }) => {
+                  return (
+                    <div className="edit-profile-picture">
+                      <Avatar src={field.value?.url} alt={userData?.name} />
+                      <input
+                        ref={profilePicRef}
+                        type="file"
+                        accept="image/*"
+                        style={{ display: "none" }}
+                        onChange={(e) => {
+                          const files = e.target.files;
+                          if (files) {
+                            const file = files[0];
+                            field.onChange(handleFileChange(file));
+                          }
+                        }}
+                      />
+                      <div className="edit-profile-buttons">
+                        <Button onClick={openChangePhotoInput}>
+                          Change Photo
+                        </Button>
+                        <Button
+                          className="delete-photo-button"
+                          variant="light"
+                          onClick={() => {
+                            field.onChange({
+                              url: "",
+                              file: null,
+                            });
+                          }}
+                        >
+                          Delete
+                        </Button>
+                      </div>
+                    </div>
+                  );
+                }}
+              />
             </div>
             <div>
               <Label>Full Name</Label>
@@ -100,7 +150,7 @@ const ProfileEdit = () => {
             <Button onClick={onCancel} variant="simple">
               Cancel
             </Button>
-            <Button onClick={handleSubmit(onSubmit)} isLoading={isSubmitting}>
+            <Button onClick={handleSubmit(onSubmit)} isLoading={isLoading}>
               Save Changes
             </Button>
           </div>

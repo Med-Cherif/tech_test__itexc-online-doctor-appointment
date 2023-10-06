@@ -14,7 +14,7 @@ const SidebarLink = ({ title, href, onClick, Icon }: TProps) => {
   return (
     <li>
       <Link
-        to={href!}
+        to={href || "#"}
         className={`sidebar-link ${pathname === href ? "active" : ""}`}
         onClick={(e) => {
           if (onClick) {

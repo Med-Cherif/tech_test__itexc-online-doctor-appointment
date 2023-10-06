@@ -3,10 +3,12 @@ import { Link } from "react-router-dom";
 import { IoNotificationsOutline } from "react-icons/io5";
 import { AiOutlineSetting } from "react-icons/ai";
 import Avatar from "../common/Avatar";
-import avatar from "../../assets/avatar.png";
+// import avatar from "../../assets/avatar.png";
 import Logo from "../common/Logo";
+import { useAppSelector } from "../../hooks/useRedux";
 
 const Navbar = () => {
+  const { userData } = useAppSelector((state) => state.user);
   return (
     <header>
       <Logo />
@@ -17,7 +19,7 @@ const Navbar = () => {
         </div>
         <div>
           <Link to="/profile">
-            <Avatar src={avatar} />
+            <Avatar src={userData?.profilePicture} alt={userData?.name} />
           </Link>
         </div>
       </div>

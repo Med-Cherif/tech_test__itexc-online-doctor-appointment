@@ -3,6 +3,8 @@
 import { useState, createContext, useContext, useEffect } from "react";
 import { useGetUserAuth } from "../hooks/useAuth";
 import { useLocation } from "react-router-dom";
+import { useAppDispatch } from "../hooks/useRedux";
+import { userActions } from "../store/slices/userSlice";
 
 interface TAppContext {
   closeSidebar: () => void;
@@ -13,7 +15,8 @@ interface TAppContext {
 const appContext = createContext<TAppContext>({} as TAppContext);
 
 const AppProvider = ({ children }: { children: React.ReactNode }) => {
-  useGetUserAuth();
+  const { data: profileData } = useGetUserAuth();
+  const dispatch = useAppDispatch();
 
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const location = useLocation();
@@ -24,6 +27,12 @@ const AppProvider = ({ children }: { children: React.ReactNode }) => {
   useEffect(() => {
     closeSidebar();
   }, [location]);
+
+  useEffect(() => {
+    if (profileData) {
+      dispatch(userActions.getProfileData(profileData));
+    }
+  }, [profileData]);
 
   return (
     <appContext.Provider

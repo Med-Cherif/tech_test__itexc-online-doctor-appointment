@@ -6,14 +6,12 @@ import { AiOutlineEdit } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import { CiLocationOn } from "react-icons/ci";
 import Avatar from "../../components/common/Avatar";
-import profilePicture from "../../assets/profile/cover-picture.png";
+// import profilePicture from "../../assets/profile/cover-picture.png";
 // import coverPicture from "../../assets/profile/cover-picture.png";
 import ProfileCoverPicture from "../../components/profile/ProfileCoverPicture";
 import { useAppSelector } from "../../hooks/useRedux";
-import { useGetUserAuth } from "../../hooks/useAuth";
 
 const ProfileDetails = () => {
-  useGetUserAuth();
   const { userData } = useAppSelector((state) => state.user);
   return (
     <div className="profile-details">
@@ -22,7 +20,11 @@ const ProfileDetails = () => {
         <CardBody>
           <div className="profile-info-wrapper">
             <div className="profile-avatar-wrapper">
-              <Avatar src={profilePicture} className="profile-avatar" />
+              <Avatar
+                src={userData?.profilePicture}
+                alt={userData?.name}
+                className="profile-avatar"
+              />
             </div>
             <div className="profile-data">
               <div>

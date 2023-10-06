@@ -17,10 +17,11 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import registerSchema from "../../schemas/registerSchema";
 import { handleUseFormErrors } from "../../helpers/handleUseFormErrors";
 import FormErrorMessage from "../../components/common/form/FormErrorMessage";
+import Alert from "../../components/common/Alert";
 // import { Route, Routes } from "react-router-dom";
 
 const Register = () => {
-  const { form, mutation, onSubmitSuccess } = useAuth("register", {
+  const { form, mutation, error, onSubmitSuccess } = useAuth("register", {
     resolver: yupResolver(registerSchema) as any,
   });
 
@@ -37,6 +38,7 @@ const Register = () => {
       <AuthDescription description="Let’s Enter your data to continue use healthy 24 services" />
 
       <div className="auth-form">
+        {error && <Alert>{error}</Alert>}
         <div>
           <Label>Fullname</Label>
           <Input placeholder="Enter Your name here" {...register("name")} />

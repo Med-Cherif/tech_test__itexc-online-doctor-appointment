@@ -2,11 +2,11 @@
 
 // Variables
 @import "variables/numbers";
-@import "./variables/colors";
-@import "./variables/breakpoints";
-@import "./variables/radius";
-@import "./variables/font-sizes";
-@import "./variables/breakpoints";
+@import "variables/colors";
+@import "variables/breakpoints";
+@import "variables/radius";
+@import "variables/font-sizes";
+@import "variables/breakpoints";
 
 // helpers
 @import "helpers/spacing-classes";
@@ -31,6 +31,10 @@
 @import "components/badge";
 @import "components/pagination";
 @import "components/alert";
+@import "components/timeline";
+@import "components/backdrop";
+@import "components/drawer";
+@import "components/file-downloader";
 
 @import "components/patients-components";
 @import "components/auth-components";
@@ -71,4 +75,13 @@ ul {
   color: $bg-danger;
   font-size: 14px;
   margin-top: 4px;
+}
+
+.table-actions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  > * {
+    cursor: pointer;
+  }
 }

@@ -101,3 +101,104 @@
     color: $text-2-color;
   }
 }
+
+/** Patient Details Page */
+.patient-details {
+  display: grid;
+  grid-template-columns: 4fr 8fr;
+  gap: 30px;
+  @include screen-extra-large {
+    grid-template-columns: 1fr;
+  }
+  .patient-details-information {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .patient-details-user {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+    .patient-id {
+      font-size: 16px;
+      color: $text-1-color;
+      span {
+        display: inline-block;
+        font-weight: 600;
+        margin-left: 6px;
+        color: $black-color;
+      }
+    }
+  }
+
+  .card-title {
+    // font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 16px;
+  }
+}
+
+.patient-details-stats-numbers {
+  @include center;
+  gap: 70px;
+  @include screen-small {
+    font-size: 14px;
+    // @include between;
+    gap: 16px;
+  }
+  .patient-appointment-number {
+    margin-top: 20px;
+    color: $text-2-color;
+    text-align: center;
+    .patient-appointment-number-value {
+      margin-bottom: 2px;
+    }
+  }
+}
+
+.patient-note {
+  &:not(:last-child) {
+    margin-bottom: 30px;
+  }
+  .patient-note-date {
+    transform: translateY(-4px);
+    font-size: 16px;
+    color: $text-2-color;
+    margin-bottom: 6px;
+  }
+  .patient-note-card {
+    padding: 16px 24px;
+    background-color: $gray-6-color;
+    border-radius: $border-radius;
+    .patient-note-title {
+      font-weight: 500;
+      font-size: 14px;
+    }
+    .patient-note-description {
+      font-weight: 400;
+      font-size: 14px;
+      margin: 12px 0 30px;
+      color: $text-1-color;
+    }
+    .patient-note-metadata {
+      @include between;
+      // flex-wrap: wrap;
+      gap: 8px;
+      @include screen-small {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .patient-note-metadata-item {
+        display: flex;
+        flex-direction: column;
+        font-size: 14px;
+        gap: 8px;
+        a {
+          color: $primary-color;
+        }
+      }
+    }
+  }
+}

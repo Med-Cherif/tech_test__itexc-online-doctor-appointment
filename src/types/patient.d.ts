@@ -6,8 +6,8 @@ export interface TPatient {
   bloodPressure: string | number;
   bloodGlucose: string | number;
   patientID: string | number;
-  appointment: string | number;
-  completed: string | number;
+  appointment: number;
+  completed: number;
   height: string | number;
   bloodType: string | number;
   disease: string | number;

@@ -7,6 +7,7 @@ import ForgotPassword from "./pages/ForgotPassword";
 import Login from "./pages/Login";
 import MedicalHistory from "./pages/MedicalHistory";
 import OTPVerification from "./pages/OTPVerification/OTPVerification";
+import PatientDetails from "./pages/Patients/PatientDetailsPage";
 import PatientsList from "./pages/Patients/PatientsList";
 import ProfileDetails from "./pages/Profile/ProfileDetails";
 import ProfileEdit from "./pages/Profile/ProfileEdit";
@@ -57,6 +58,11 @@ const routes = [
         id: 3,
         path: "/patients",
         element: <PatientsList />,
+      },
+      {
+        id: 3,
+        path: "/patients/:id",
+        element: <PatientDetails />,
       },
       {
         id: 4,

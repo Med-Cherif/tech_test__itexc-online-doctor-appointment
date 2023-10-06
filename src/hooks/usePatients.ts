@@ -7,7 +7,7 @@ const usePatients = () => {
   const [list, setList] = useState<TPatient[]>([]);
 
   const { data, ...query } = useQuery({
-    queryKey: ["medical-history"],
+    queryKey: ["patients"],
     queryFn: () => {
       return patientApis.getAll();
     },
@@ -25,4 +25,26 @@ const usePatients = () => {
   };
 };
 
-export { usePatients };
+const useGetOnePatient = <T>(id: string | number) => {
+  const [item, setItem] = useState<T | null>(null);
+
+  const { data, ...query } = useQuery({
+    queryKey: ["patients", id],
+    queryFn: () => {
+      return patientApis.getOne(id);
+    },
+  });
+
+  useEffect(() => {
+    if (data) {
+      setItem(data);
+    }
+  }, [data]);
+
+  return {
+    data: item,
+    ...query,
+  };
+};
+
+export { usePatients, useGetOnePatient };

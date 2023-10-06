@@ -1,0 +1,28 @@
+.timeline {
+  $timeline-x-padding: 30px;
+  $point-width: 16px;
+
+  padding-left: $timeline-x-padding;
+  margin-left: $point-width / 2;
+  border-left: 1px dotted $gray-1-color;
+  .timeline-item {
+    position: relative;
+
+    .timeline-item-point {
+      position: absolute;
+      top: 0;
+      display: inline-block;
+      left: -$timeline-x-padding - $point-width / 2;
+      background-color: $white-color;
+      border: 4px solid $primary-color;
+      @include circle($point-width);
+    }
+    // .timeline-item-point-text {
+    //   position: absolute;
+    //   top: 0;
+    //   //   height: 0;
+    //   //   transform: translateY(-50%);
+    //   display: inline-block;
+    // }
+  }
+}

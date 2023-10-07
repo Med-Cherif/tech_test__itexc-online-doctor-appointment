@@ -1,3 +1,5 @@
+import PageLoader from "./PageLoader";
+
 interface TProps {
   children: React.ReactNode;
   isLoading?: boolean;
@@ -7,7 +9,7 @@ interface TProps {
 const LoaderWrapper = ({
   children,
   isLoading,
-  loadingComponent = <h2>Loading...</h2>,
+  loadingComponent = <PageLoader />,
 }: TProps) => {
   return isLoading ? <>{loadingComponent}</> : <>{children}</>;
 };

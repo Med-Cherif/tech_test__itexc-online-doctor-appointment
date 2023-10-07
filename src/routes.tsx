@@ -16,8 +16,8 @@ import Register from "./pages/Register";
 const routes = [
   {
     id: 1,
-    Layout: <AuthLayout />,
-    routes: [
+    element: <AuthLayout />,
+    children: [
       {
         id: 1,
         path: "/login",
@@ -42,8 +42,8 @@ const routes = [
   },
   {
     id: 2,
-    Layout: <AppLayout />,
-    routes: [
+    element: <AppLayout />,
+    children: [
       {
         id: 1,
         path: "/dashboard",
@@ -73,8 +73,8 @@ const routes = [
   },
   {
     id: 3,
-    Layout: <ProfileLayout />,
-    routes: [
+    element: <ProfileLayout />,
+    children: [
       {
         id: 1,
         path: "/profile",

@@ -17,7 +17,7 @@ const Pagination = ({
 }: TProps) => {
   const totalPages = Math.ceil(totalCount / pageSize);
   const pages = usePagination({ currentPage, pageSize, totalCount });
-  return (
+  return totalPages > 0 ? (
     <div
       className={`
         pagination-parent
@@ -68,6 +68,8 @@ const Pagination = ({
         />
       </div>
     </div>
+  ) : (
+    <></>
   );
 };
 

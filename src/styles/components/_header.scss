@@ -35,6 +35,7 @@ header {
 .mobile-header {
   @include between(8px);
   margin-bottom: 30px;
+  background-color: $white-color;
   display: none;
   svg {
     font-size: 20px;

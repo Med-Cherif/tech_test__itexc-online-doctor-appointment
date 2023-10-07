@@ -11,14 +11,16 @@ interface TProps {
 const MobileHeader = ({ title }: TProps) => {
   const { openSidebar } = useAppContext();
   return (
-    <div className="mobile-header">
-      <AiOutlineMenu onClick={openSidebar} />
-      <MobileHeaderTitle text={title} />
-      <div className="mobile-header-notification">
-        <IoNotificationsOutline />
-        <CountBadge number={2} />
+    <>
+      <div className="mobile-header">
+        <AiOutlineMenu onClick={openSidebar} />
+        <MobileHeaderTitle text={title} />
+        <div className="mobile-header-notification">
+          <IoNotificationsOutline />
+          <CountBadge number={2} />
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

@@ -96,6 +96,7 @@ const Calendar = () => {
                 {currentWeek.map((weekDay, index) => {
                   return weekDay ? (
                     <CalendarDayCell
+                      key={weekDay.getTime()}
                       date={weekDay}
                       //   disabledDates={disabledDates}
                       //   onDateClick={onDateClick}

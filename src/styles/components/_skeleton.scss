@@ -1,0 +1,26 @@
+.skeleton {
+  $opacity: 0.9;
+  opacity: $opacity;
+  animation: skeleton 1.8s linear infinite;
+  width: 100%;
+  padding: 12px;
+  //   margin: 20px;
+  background-color: $gray-1-color;
+  border-radius: $border-radius;
+
+  &.skeleton-circle {
+    @include circle(36px);
+  }
+
+  @keyframes skeleton {
+    0% {
+      opacity: $opacity;
+    }
+    50% {
+      opacity: 0.3;
+    }
+    100% {
+      opacity: $opacity;
+    }
+  }
+}

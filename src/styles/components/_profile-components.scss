@@ -4,6 +4,13 @@ $profile-avatar: 140px;
   padding: 20px 0;
 }
 
+.profile-layout-sidebar {
+  display: none;
+  @include screen-medium {
+    display: block;
+  }
+}
+
 .cover-picture-wrapper {
   .cover-picture {
     width: 100%;

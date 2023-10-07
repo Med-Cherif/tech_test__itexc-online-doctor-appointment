@@ -18,6 +18,10 @@ import handleFileChange from "../../helpers/fileHelpers";
 import { useUpdateProfileData } from "../../hooks/useAuth";
 import handleFormData from "../../helpers/handleFormData";
 import { TObject } from "../../types/TObject";
+import LoaderWrapper from "../../components/common/Loaders/LoaderWrapper";
+import ProfileLoader from "../../components/common/Loaders/ProfileLoader";
+import MobileHeaderDetailsPage from "../../components/Header/MobileHeaderDetailsPage";
+import toastAlert from "../../helpers/toastAlert";
 
 const ProfileEdit = () => {
   const profilePicRef = useRef<HTMLInputElement>(null);
@@ -44,11 +48,7 @@ const ProfileEdit = () => {
     profilePicRef.current?.click();
   };
 
-  // const onDeleteImage = () => {
-
-  // }
-
-  const onCancel = () => {
+  const navigateToProfile = () => {
     navigate("/profile");
   };
 
@@ -62,100 +62,114 @@ const ProfileEdit = () => {
     });
 
     // console.log(data);
-    mutate(formData);
+    mutate(formData, {
+      onSuccess() {
+        navigateToProfile();
+      },
+      onError() {
+        toastAlert("Something went wrong", "error");
+      },
+    });
   };
 
   return (
     <div className="profile-edit">
-      <Card>
-        <CardBody>
-          <ProfileTitle text="Edit Profile" />
-          <p className="profile-text">
-            Your profile will be displayed publicly so be careful what you share
-          </p>
-          <div className="fields-wrapper">
-            <div>
-              <Label>Cover</Label>
-              <ProfileCoverPicture />
-            </div>
-            <div>
-              <Label>Profile Picture</Label>
-              <Controller
-                name="profilePicture"
-                control={control}
-                render={({ field }) => {
-                  return (
-                    <div className="edit-profile-picture">
-                      <Avatar src={field.value?.url} alt={userData?.name} />
-                      <input
-                        ref={profilePicRef}
-                        type="file"
-                        accept="image/*"
-                        style={{ display: "none" }}
-                        onChange={(e) => {
-                          const files = e.target.files;
-                          if (files) {
-                            const file = files[0];
-                            field.onChange(handleFileChange(file));
-                          }
-                        }}
-                      />
-                      <div className="edit-profile-buttons">
-                        <Button onClick={openChangePhotoInput}>
-                          Change Photo
-                        </Button>
-                        <Button
-                          className="delete-photo-button"
-                          variant="light"
-                          onClick={() => {
-                            field.onChange({
-                              url: "",
-                              file: null,
-                            });
+      <MobileHeaderDetailsPage text="Edit Profile" href="profile" />
+      <LoaderWrapper
+        isLoading={!userData}
+        loadingComponent={<ProfileLoader cardsNumber={1} />}
+      >
+        <Card>
+          <CardBody>
+            <ProfileTitle text="Edit Profile" />
+            <p className="profile-text">
+              Your profile will be displayed publicly so be careful what you
+              share
+            </p>
+            <div className="fields-wrapper">
+              <div>
+                <Label>Cover</Label>
+                <ProfileCoverPicture />
+              </div>
+              <div>
+                <Label>Profile Picture</Label>
+                <Controller
+                  name="profilePicture"
+                  control={control}
+                  render={({ field }) => {
+                    return (
+                      <div className="edit-profile-picture">
+                        <Avatar src={field.value?.url} alt={userData?.name} />
+                        <input
+                          ref={profilePicRef}
+                          type="file"
+                          accept="image/*"
+                          style={{ display: "none" }}
+                          onChange={(e) => {
+                            const files = e.target.files;
+                            if (files) {
+                              const file = files[0];
+                              field.onChange(handleFileChange(file));
+                            }
                           }}
-                        >
-                          Delete
-                        </Button>
+                        />
+                        <div className="edit-profile-buttons">
+                          <Button onClick={openChangePhotoInput}>
+                            Change Photo
+                          </Button>
+                          <Button
+                            className="delete-photo-button"
+                            variant="light"
+                            onClick={() => {
+                              field.onChange({
+                                url: "",
+                                file: null,
+                              });
+                            }}
+                          >
+                            Delete
+                          </Button>
+                        </div>
                       </div>
-                    </div>
-                  );
-                }}
-              />
+                    );
+                  }}
+                />
+              </div>
+              <div>
+                <Label>Full Name</Label>
+                <Input
+                  placeholder="Inpute your Fullname here"
+                  {...register("name")}
+                />
+              </div>
+              <div>
+                <Label>Speciality</Label>
+                <Input
+                  placeholder="Inpute your speciality here"
+                  {...register("speciality")}
+                />
+              </div>
+              <div>
+                <Label>Profile Description</Label>
+                <textarea
+                  {...register("description")}
+                  className="form-control"
+                  rows={3}
+                  placeholder="Inpute your Profile Desciption here"
+                />
+              </div>
             </div>
-            <div>
-              <Label>Full Name</Label>
-              <Input
-                placeholder="Inpute your Fullname here"
-                {...register("name")}
-              />
+            <div className="profile-edit-actions">
+              <Button onClick={navigateToProfile} variant="simple">
+                Cancel
+              </Button>
+              <Button onClick={handleSubmit(onSubmit)} isLoading={isLoading}>
+                Save Changes
+              </Button>
             </div>
-            <div>
-              <Label>Speciality</Label>
-              <Input
-                placeholder="Inpute your speciality here"
-                {...register("speciality")}
-              />
-            </div>
-            <div>
-              <Label>Profile Description</Label>
-              <textarea
-                {...register("description")}
-                className="form-control"
-                rows={3}
-                placeholder="Inpute your Profile Desciption here"
-              />
-            </div>
-          </div>
-          <div className="profile-edit-actions">
-            <Button onClick={onCancel} variant="simple">
-              Cancel
-            </Button>
-            <Button onClick={handleSubmit(onSubmit)} isLoading={isLoading}>
-              Save Changes
-            </Button>
-          </div>
-        </CardBody>
-      </Card>
+          </CardBody>
+        </Card>
+      </LoaderWrapper>
     </div>
   );
 };

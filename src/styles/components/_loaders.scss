@@ -1,0 +1,50 @@
+.page-loader {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 100%;
+  gap: 20px;
+  div {
+    &.page-loader-first {
+      .skeleton {
+        height: 100%;
+      }
+    }
+    &.page-loader-last {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      .skeleton {
+        width: 100%;
+        height: 50%;
+      }
+    }
+    @include screen-medium {
+      .skeleton {
+        height: 180px !important;
+      }
+    }
+  }
+  @include screen-medium {
+    gap: 0;
+    grid-template-columns: 1fr;
+  }
+  .skeleton {
+    // width: 100%;
+    // height: 300px;
+  }
+}
+
+.table-skeleton {
+  width: 100%;
+  height: calc(100vh - 150px);
+}
+
+.profile-loader {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  height: calc(100vh - 100px);
+  > * {
+    flex: 1;
+  }
+}

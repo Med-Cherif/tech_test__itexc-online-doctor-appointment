@@ -11,7 +11,8 @@
   @include screen-medium {
     display: block;
     .app-layout-content {
-      height: auto;
+      height: 1px;
+      min-height: 100vh;
     }
   }
 }

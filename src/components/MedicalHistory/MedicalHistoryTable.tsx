@@ -15,7 +15,7 @@ import { useState } from "react";
 import useDrawer from "../../hooks/useDrawer";
 
 const MedicalHistoryTable = () => {
-  const { data } = useMedicalHistory();
+  const { isLoading, data } = useMedicalHistory();
 
   const [selectedItem, setSelectedItem] = useState<TMedicalReport | null>(null);
   const { onClose, onOpen, open } = useDrawer();
@@ -107,6 +107,7 @@ const MedicalHistoryTable = () => {
         setSelectedItem={setSelectedItem}
       />
       <DataTableComponent
+        isLoading={isLoading}
         pagination
         paginationPerPage={10}
         data={data}

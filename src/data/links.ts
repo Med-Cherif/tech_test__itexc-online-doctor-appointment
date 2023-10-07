@@ -1,6 +1,6 @@
 import { BiBarChartSquare, BiChart } from "react-icons/bi";
 import { TiGroupOutline } from "react-icons/ti";
-import { AiOutlineMessage } from "react-icons/ai";
+// import { AiOutlineMessage } from "react-icons/ai";
 import { LuCalendarDays } from "react-icons/lu";
 
 const links = [
@@ -16,12 +16,12 @@ const links = [
     Icon: TiGroupOutline,
     href: "/patients",
   },
-  {
-    id: 3,
-    title: "Messages",
-    Icon: AiOutlineMessage,
-    href: "/messages",
-  },
+  // {
+  //   id: 3,
+  //   title: "Messages",
+  //   Icon: AiOutlineMessage,
+  //   href: "/messages",
+  // },
   {
     id: 4,
     title: "Appointment",

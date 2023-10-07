@@ -7,6 +7,7 @@ import AppointmentUserDetails from "./AppointmentUserDetails";
 import { TAppointment, TAppointmentStatus } from "../../types/appointment";
 import { useMutation } from "@tanstack/react-query";
 import appointmentApis from "../../apis/appointmentApis";
+import toastAlert from "../../helpers/toastAlert";
 
 interface TProps {
   item: TAppointment;
@@ -20,10 +21,15 @@ const AppointmentListCard = ({ item, setData }: TProps) => {
     mutationFn: (vars: { status: TAppointmentStatus }) => {
       return appointmentApis.updateStatus(_id, vars.status);
     },
-    onSuccess() {
+    onSuccess(_, { status }) {
       setData((current) => {
         return current.filter((item) => item._id !== _id);
       });
+      toastAlert(
+        `Appointment ${
+          status === "accepted" ? "Accepted" : "Declined"
+        } Successfully`
+      );
     },
   });
 
@@ -52,7 +58,7 @@ const AppointmentListCard = ({ item, setData }: TProps) => {
             isLoading={isLoading && status === "declined"}
             onClick={() => handleClick("declined")}
           >
-            Decline Appointment
+            Decline <span>Appointment</span>
           </Button>
           <Button
             fullWidth
@@ -61,7 +67,7 @@ const AppointmentListCard = ({ item, setData }: TProps) => {
             isLoading={isLoading && status === "accepted"}
             onClick={() => handleClick("accepted")}
           >
-            Accept Appointment
+            Accept <span>Appointment</span>
           </Button>
         </div>
       </CardBody>

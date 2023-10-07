@@ -1,9 +1,16 @@
 import DataTable, { TableProps } from "react-data-table-component";
 import Pagination from "../Pagination";
+import Skeleton from "../Skeleton";
 
-const DataTableComponent = ({ ...props }: TableProps<unknown>) => {
+interface TProps extends TableProps<unknown> {
+  isLoading?: boolean;
+}
+
+const DataTableComponent = ({ isLoading, ...props }: TProps) => {
   return (
     <DataTable
+      progressComponent={<Skeleton className="table-skeleton" />}
+      progressPending={isLoading}
       paginationComponent={({
         currentPage,
         rowCount,

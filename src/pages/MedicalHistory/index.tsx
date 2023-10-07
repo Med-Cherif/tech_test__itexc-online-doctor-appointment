@@ -8,8 +8,8 @@ import MedicalHistoryTable from "../../components/MedicalHistory/MedicalHistoryT
 
 const MedicalHistory = () => {
   return (
-    <div>
-      <AppLayoutContent>
+    <AppLayoutContent>
+      <div>
         <MobileHeader title="Medical History" />
         <PageTitle text="Medical History" />
         <Card>
@@ -17,8 +17,8 @@ const MedicalHistory = () => {
           <MedicalHistoryTable />
           {/* </CardBody> */}
         </Card>
-      </AppLayoutContent>
-    </div>
+      </div>
+    </AppLayoutContent>
   );
 };
 

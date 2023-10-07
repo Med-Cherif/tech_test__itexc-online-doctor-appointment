@@ -3,13 +3,14 @@ import SidebarLink from "./SidebarLink";
 import Logo from "../common/Logo";
 import { useAppContext } from "../../contexts/appContext";
 import Avatar from "../common/Avatar";
-import avatar from "../../assets/avatar.png";
 import { Link } from "react-router-dom";
 import { IoNotificationsOutline } from "react-icons/io5";
 import { AiOutlineSetting } from "react-icons/ai";
 import CountBadge from "../common/CountBadge";
+import { useAppSelector } from "../../hooks/useRedux";
 
 const SidebarMobileScreen = () => {
+  const { userData } = useAppSelector((state) => state.user);
   const { closeSidebar } = useAppContext();
   return (
     <div className="sidebar-mobile-content">
@@ -19,7 +20,11 @@ const SidebarMobileScreen = () => {
       </div>
       <div className="sidebar-edit-profile-wrapper">
         <Link to="/profile/edit" className="sidebar-edit-profile-link">
-          <Avatar src={avatar} size={32} />
+          <Avatar
+            src={userData?.profilePicture}
+            alt={userData?.name}
+            size={32}
+          />
           <span>Edit My Profile</span>
         </Link>
       </div>

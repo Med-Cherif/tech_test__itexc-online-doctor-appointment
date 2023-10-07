@@ -13,6 +13,8 @@ import { useMedicalHistory } from "../../hooks/useMedicalHistory";
 import MedicalHistoryDetails from "./MedicalHistoryDetails";
 import { useState } from "react";
 import useDrawer from "../../hooks/useDrawer";
+import MedicalHistoryList from "./MedicalHistoryList";
+import CardBody from "../common/Card/CardBody";
 
 const MedicalHistoryTable = () => {
   const { isLoading, data } = useMedicalHistory();
@@ -106,13 +108,17 @@ const MedicalHistoryTable = () => {
         selectedItem={selectedItem}
         setSelectedItem={setSelectedItem}
       />
-      <DataTableComponent
-        isLoading={isLoading}
-        pagination
-        paginationPerPage={10}
-        data={data}
-        columns={columns as any}
-      />
+      <CardBody className="medical-history-data-table">
+        <DataTableComponent
+          isLoading={isLoading}
+          pagination
+          paginationPerPage={10}
+          data={data}
+          columns={columns as any}
+        />
+      </CardBody>
+
+      <MedicalHistoryList data={data} />
     </>
   );
 };

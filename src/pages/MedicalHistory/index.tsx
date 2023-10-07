@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import Card from "../../components/common/Card";
-import CardBody from "../../components/common/Card/CardBody";
 import PageTitle from "../../components/common/PageTitle";
 import MobileHeader from "../../components/Header/MobileHeader";
 import MedicalHistoryTable from "../../components/MedicalHistory/MedicalHistoryTable";
@@ -12,9 +11,9 @@ const MedicalHistory = () => {
       <MobileHeader title="Medical History" />
       <PageTitle text="Medical History" />
       <Card>
-        <CardBody>
-          <MedicalHistoryTable />
-        </CardBody>
+        {/* <CardBody> */}
+        <MedicalHistoryTable />
+        {/* </CardBody> */}
       </Card>
     </div>
   );

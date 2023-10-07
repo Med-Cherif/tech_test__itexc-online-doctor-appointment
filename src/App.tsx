@@ -5,6 +5,7 @@ function App() {
   return (
     <>
       <Routes>
+        <Route path="/" element={<Navigate to="/dashboard" replace />} />
         {routes.map((route) => {
           return (
             <Route key={route.id} path="/" element={route.element}>

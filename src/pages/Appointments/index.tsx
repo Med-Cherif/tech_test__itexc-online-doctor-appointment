@@ -13,6 +13,7 @@ import { useGetAppointments } from "../../hooks/useAppointments";
 import { TAppointment } from "../../types/appointment";
 import React from "react";
 import LoaderWrapper from "../../components/common/Loaders/LoaderWrapper";
+import AppLayoutContent from "../../components/common/AppLayoutContent";
 
 export interface TAppointmentTabProps {
   data: TAppointment[];
@@ -37,39 +38,41 @@ const Appointments = () => {
 
   return (
     <PageWrapper title="Appointment">
-      <MobileHeader title="Appointment" />
-      <PageTitle text="Appointment" />
-      <LoaderWrapper isLoading={isLoading}>
-        <div className="appointment-header">
-          <div className="appointment-date-picker">
-            <p>Jan, 16, 2023</p>
-            <BsChevronDown />
+      <AppLayoutContent>
+        <MobileHeader title="Appointment" />
+        <PageTitle text="Appointment" />
+        <LoaderWrapper isLoading={isLoading}>
+          <div className="appointment-header">
+            <div className="appointment-date-picker">
+              <p>Jan, 16, 2023</p>
+              <BsChevronDown />
+            </div>
+            <div className="appointment-tabs">
+              {tabs.map((tab) => {
+                return (
+                  <button
+                    key={tab.id}
+                    className={`appointment-tab-button ${
+                      tab.id === 2 ? "active" : ""
+                    }`}
+                  >
+                    <tab.Icon />
+                  </button>
+                );
+              })}
+            </div>
           </div>
-          <div className="appointment-tabs">
+          <Tabs activeTab={2}>
             {tabs.map((tab) => {
               return (
-                <button
-                  key={tab.id}
-                  className={`appointment-tab-button ${
-                    tab.id === 2 ? "active" : ""
-                  }`}
-                >
-                  <tab.Icon />
-                </button>
+                <TabItem key={tab.id} tabId={tab.id}>
+                  {tab.content}
+                </TabItem>
               );
             })}
-          </div>
-        </div>
-        <Tabs activeTab={2}>
-          {tabs.map((tab) => {
-            return (
-              <TabItem key={tab.id} tabId={tab.id}>
-                {tab.content}
-              </TabItem>
-            );
-          })}
-        </Tabs>
-      </LoaderWrapper>
+          </Tabs>
+        </LoaderWrapper>
+      </AppLayoutContent>
     </PageWrapper>
   );
 };

@@ -16,7 +16,7 @@ const AppointmentUserDetails = ({
 }: TProps) => {
   return (
     <div className="appointment-user-details">
-      <Avatar src={src} alt="" size={avatarSize} />
+      <Avatar src={src} alt={name} size={avatarSize} />
       <div className="appointment-user-details-texts">
         <h2 className="appointment-user-details-name">{name}</h2>
         <p className="appointment-user-details-subtitle">{subTitle}</p>

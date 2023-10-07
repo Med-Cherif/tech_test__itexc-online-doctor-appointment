@@ -19,7 +19,15 @@ const Avatar = ({ src, alt, className = "", size = 56 }: TProps) => {
   return (
     <div className={`avatar ${className}`}>
       {src && !isError ? (
-        <img className="avatar-img" src={src} alt={alt} style={{ ...styles }} />
+        <img
+          className="avatar-img"
+          src={src}
+          alt={alt}
+          style={{ ...styles }}
+          onError={() => {
+            setIsError(true);
+          }}
+        />
       ) : (
         <div className="avatar-alt" style={{ ...styles }}>
           {alt?.slice(0, 1) || "A"}

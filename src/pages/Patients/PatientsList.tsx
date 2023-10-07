@@ -1,10 +1,7 @@
 // import Button from "../../components/common/Button";
 import ButtonIcon from "../../components/common/Button/ButtonIcon";
 import PageTitle from "../../components/common/PageTitle";
-import Input from "../../components/common/form/Input";
-// import { BsDownload } from "react-icons/bs";
 import { FiDownload, FiFilter } from "react-icons/fi";
-import { CiSearch } from "react-icons/ci";
 import { usePatients } from "../../hooks/usePatients";
 import PatientItemCard from "../../components/patients/PatientItemCard";
 import Pagination from "../../components/common/Pagination";
@@ -13,6 +10,7 @@ import { TPatient } from "../../types/patient";
 import MobileHeader from "../../components/Header/MobileHeader";
 import LoaderWrapper from "../../components/common/Loaders/LoaderWrapper";
 import PageWrapper from "../../components/page/PageWrapper";
+import SearchInput from "../../components/common/form/SearchInput";
 
 const PAGE_SIZE = 8;
 
@@ -32,10 +30,7 @@ const PatientsList = () => {
       <PageTitle text="Patient List" />
       <LoaderWrapper isLoading={isLoading}>
         <div className="patient-list-actions">
-          <div className="patient-list-actions-input-wrapper">
-            <CiSearch className="patient-list-actions-input-icon" />
-            <Input placeholder="Search For Something" />
-          </div>
+          <SearchInput />
           <div className="patient-list-actions-buttons">
             <ButtonIcon variant="gray" icon={<FiDownload fontSize={18} />}>
               <span className="patient-actions-button-text">

@@ -5,11 +5,15 @@ This README provides an overview of the key components and technologies used in 
 ## Technologies Used
 
 - SCSS for styling
+
 - For Authentication i used Express JS and Mongo DB
 - Express JS to get Appointments + Accept / Decline
 - Mock Api For Patients and Medical History
+- Dummy Data For Messages
+
 - Apex Charts for dashboard charts
 - react-data-table-component for data tables
+
 - Custom calendar from scratch in dashboard
 - Custom pagination component
 - Custom timeline in Patient Details

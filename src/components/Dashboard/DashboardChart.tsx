@@ -77,17 +77,22 @@ const DashboardChart = () => {
                     },
                   },
                 },
-                // dataLabels: {
-                //   enabled: false,
-                //   offsetY: -100,
-                //   formatter(val) {
-                //     const high = getHighest();
-                //     if ((val as number) >= high.y) {
-                //       return val as number;
-                //     }
-                //     return "";
-                //   },
-                // },
+                dataLabels: {
+                  // enabled: false,
+                  // offsetY: -100,
+                  style: {
+                    colors: ["#000"],
+                    fontWeight: 600,
+                    fontSize: "14px",
+                  },
+                  // formatter(val) {
+                  //   const high = getHighest();
+                  //   if ((val as number) >= high.y) {
+                  //     return val as number;
+                  //   }
+                  //   return "";
+                  // },
+                },
                 chart: {
                   toolbar: {
                     show: false,

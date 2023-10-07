@@ -86,9 +86,15 @@
   font-size: 18px;
   font-weight: 600;
   color: $text-2-color;
+  @include screen-medium {
+    font-size: 14px;
+  }
 }
 
 .appointment-user-details-subtitle {
   font-size: 14px;
   color: $text-1-color;
+  @include screen-medium {
+    font-size: 12px;
+  }
 }

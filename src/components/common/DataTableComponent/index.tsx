@@ -11,6 +11,8 @@ const DataTableComponent = ({ isLoading, ...props }: TProps) => {
     <DataTable
       progressComponent={<Skeleton className="table-skeleton" />}
       progressPending={isLoading}
+      // paginationDefaultPage={}
+      // pagination
       paginationComponent={({
         currentPage,
         rowCount,

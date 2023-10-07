@@ -1,16 +1,16 @@
-import React from "react";
 import MedicalHistoryTable from "../MedicalHistory/MedicalHistoryTable";
 import Card from "../common/Card";
-import CardBody from "../common/Card/CardBody";
 import DashboardCardTitle from "./DashboardCardTitle";
+import CardHeader from "../common/Card/CardHeader";
 
 const DashboardMedicalHistory = () => {
   return (
-    <Card>
-      <CardBody>
+    <Card className="dashboard-medical-history">
+      <CardHeader>
         <DashboardCardTitle title="Medical History" />
-        <MedicalHistoryTable />
-      </CardBody>
+      </CardHeader>
+
+      <MedicalHistoryTable />
     </Card>
   );
 };

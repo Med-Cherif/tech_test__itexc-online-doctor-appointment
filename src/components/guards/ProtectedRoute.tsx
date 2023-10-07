@@ -11,7 +11,7 @@ const ProtectedRoute = ({ children }: TProps) => {
   const { accessToken } = useAppSelector((state) => state.user);
 
   if (!accessToken) {
-    return <Navigate to={"/login"} replace />;
+    return <Navigate to={"/register"} replace />;
   }
 
   return children;

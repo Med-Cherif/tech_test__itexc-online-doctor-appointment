@@ -68,4 +68,16 @@
       }
     }
   }
+
+  .dashboard-medical-history {
+    .card-header {
+      padding-bottom: 0;
+      .card-title {
+        margin-bottom: 0;
+      }
+    }
+    // .card-title {
+    //   padding-left: 20px;
+    // }
+  }
 }

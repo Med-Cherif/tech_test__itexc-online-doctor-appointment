@@ -9,18 +9,21 @@ import { TPatient } from "../../types/patient";
 import PageTitle from "../../components/common/PageTitle";
 // import MobileHeader from "../../components/Header/MobileHeader";
 import MobileHeaderDetailsPage from "../../components/Header/MobileHeaderDetailsPage";
+import AppLayoutContent from "../../components/common/AppLayoutContent";
 
 const PatientDetailsPage = () => {
   const { id } = useParams();
   const { isLoading, data } = useGetOnePatient<TPatient>(id!);
   return (
     <PageWrapper title="Patient Details">
-      <MobileHeaderDetailsPage href="patients" text="Patient Details" />
-      <PageTitle text="Patient Details" />
+      <AppLayoutContent>
+        <MobileHeaderDetailsPage href="patients" text="Patient Details" />
+        <PageTitle text="Patient Details" />
 
-      <LoaderWrapper isLoading={isLoading}>
-        {data ? <PatientDetails data={data} /> : null}
-      </LoaderWrapper>
+        <LoaderWrapper isLoading={isLoading}>
+          {data ? <PatientDetails data={data} /> : null}
+        </LoaderWrapper>
+      </AppLayoutContent>
     </PageWrapper>
   );
 };

@@ -10,9 +10,7 @@ const AppLayout = () => {
       <Header />
       <div className="app-layout-wrapper">
         <Sidebar />
-        <div className="app-layout-content">
-          <Outlet />
-        </div>
+        <Outlet />
       </div>
     </ProtectedRoute>
   );

@@ -6,6 +6,7 @@ import Dashboard from "./pages/Dashboard";
 import ForgotPassword from "./pages/ForgotPassword";
 import Login from "./pages/Login";
 import MedicalHistory from "./pages/MedicalHistory";
+import Messages from "./pages/Messages";
 import OTPVerification from "./pages/OTPVerification/OTPVerification";
 import PatientDetails from "./pages/Patients/PatientDetailsPage";
 import PatientsList from "./pages/Patients/PatientsList";
@@ -68,6 +69,11 @@ const routes = [
         id: 4,
         path: "/appointment",
         element: <Appointments />,
+      },
+      {
+        id: 5,
+        path: "/messages/*",
+        element: <Messages />,
       },
     ],
   },

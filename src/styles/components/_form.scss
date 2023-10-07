@@ -45,3 +45,24 @@
     font-size: $font-size-extra-small;
   }
 }
+
+.search-input {
+  flex: 1;
+  max-width: 280px;
+  position: relative;
+  .search-input-icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 20px;
+    font-size: 22px;
+  }
+  input {
+    padding-left: 50px;
+    height: 46px;
+    &::placeholder {
+      color: $text-2-color;
+      font-size: 12px;
+    }
+  }
+}

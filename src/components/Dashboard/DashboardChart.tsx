@@ -5,7 +5,53 @@ import CardBody from "../common/Card/CardBody";
 import DashboardCardTitle from "./DashboardCardTitle";
 import ReactApexchart from "react-apexcharts";
 
+const series = [
+  {
+    x: "01",
+    y: 30,
+  },
+  {
+    x: "02",
+    y: 40,
+  },
+  {
+    x: "03",
+    y: 50,
+    fillColor: "#56CCF2",
+  },
+  {
+    x: "04",
+    y: 25,
+  },
+  {
+    x: "05",
+    y: 35,
+  },
+  {
+    x: "06",
+    y: 38,
+  },
+];
+
 const DashboardChart = () => {
+  // const getHighest = () => {
+  //   // let min = -
+  //   let result = {
+  //     x: "",
+  //     y: -Infinity,
+  //   };
+  //   series.forEach(({ x, y }) => {
+  //     if (y > result.y) {
+  //       result = {
+  //         x,
+  //         y,
+  //       };
+  //     }
+  //   });
+
+  //   return result;
+  // };
+
   return (
     <div className="dashboard-chart">
       <PageTitle text="Welcome Back Dr.Taylor!" />
@@ -17,51 +63,38 @@ const DashboardChart = () => {
               type="bar"
               series={[
                 {
-                  data: Array.from({ length: 6 }).map((_, index) => {
-                    return {
-                      x: index + 1,
-                      y: (index + 1) * 10,
-                      //   fillColor: "#eee",
-                    };
-                  }),
+                  data: series,
                 },
               ]}
               options={{
+                fill: {
+                  colors: ["#DFE8F6"],
+                },
                 plotOptions: {
                   bar: {
                     dataLabels: {
-                      position: "top", // top, center, bottom
+                      position: "top",
                     },
                   },
                 },
-                dataLabels: {
-                  offsetY: 0,
-                  background: {
-                    borderColor: "#000",
-                    foreColor: "#000",
-                    padding: 20,
-                  },
-
-                  style: {
-                    colors: ["#fff"],
-                  },
-                  formatter(val, opts) {
-                    // console.log({ val, opts });
-                    return "";
-                  },
-                },
+                // dataLabels: {
+                //   enabled: false,
+                //   offsetY: -100,
+                //   formatter(val) {
+                //     const high = getHighest();
+                //     if ((val as number) >= high.y) {
+                //       return val as number;
+                //     }
+                //     return "";
+                //   },
+                // },
                 chart: {
                   toolbar: {
                     show: false,
                   },
                 },
               }}
-              //   options={{
-              //     xaxis: {
-              //       categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
-              //     },
-              //   }}
-              height={300}
+              height={320}
             />
           </div>
         </CardBody>

@@ -16,13 +16,11 @@ const weekDays = [
   "Saturday",
 ];
 
-// interface IProps {
-//   date: Date;
-//   onDateClick?: (date: Date) => void;
-// }
+interface TProps {
+  isMarkedDate?: (date: Date) => boolean;
+}
 
-const Calendar = () => {
-  // date = new Date(date || new Date());
+const Calendar = ({ isMarkedDate }: TProps) => {
   //   const today = new Date();
   const [selectedMonth, setSelectedMonth] = useState(new Date());
   const daysInMonth = getDaysInMonth(
@@ -98,11 +96,7 @@ const Calendar = () => {
                     <CalendarDayCell
                       key={weekDay.getTime()}
                       date={weekDay}
-                      //   disabledDates={disabledDates}
-                      //   onDateClick={onDateClick}
-                      //   range={range}
-                      //   key={index}
-                      //   day={weekDay}
+                      isMarkedDate={isMarkedDate}
                     />
                   ) : (
                     <td key={index} style={{ cursor: "auto" }}></td>

@@ -6,6 +6,17 @@ import Calendar from "../common/Calendar";
 import { BiChevronDown } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import UpcomingMeetItem from "./UpcomingMeetItem";
+import { format } from "date-fns";
+
+const markedDates = [
+  "2023-10-02",
+  "2023-10-05",
+  "2023-10-14",
+  "2023-10-18",
+  "2023-10-10",
+  "2023-10-23",
+  "2023-10-31",
+];
 
 const DashboardCalendar = () => {
   return (
@@ -16,7 +27,16 @@ const DashboardCalendar = () => {
           <BiChevronDown />
         </div>
         <div>
-          <Calendar />
+          <Calendar
+            isMarkedDate={(date) => {
+              return markedDates.some((markedDate) => {
+                return (
+                  format(date, "yyyy-MM-dd") ===
+                  format(new Date(markedDate), "yyyy-MM-dd")
+                );
+              });
+            }}
+          />
         </div>
         <div className="dashboard-calendar-upcoming">
           <div className="dashboard-calendar-upcoming-header">

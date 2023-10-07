@@ -3,7 +3,7 @@
   $point-width: 16px;
 
   padding-left: $timeline-x-padding;
-  margin-left: $point-width / 2;
+  margin-left: calc($point-width / 2);
   border-left: 1px dotted $gray-1-color;
   .timeline-item {
     position: relative;
@@ -12,7 +12,7 @@
       position: absolute;
       top: 0;
       display: inline-block;
-      left: -$timeline-x-padding - $point-width / 2;
+      left: -$timeline-x-padding - calc($point-width / 2);
       background-color: $white-color;
       border: 4px solid $primary-color;
       @include circle($point-width);
